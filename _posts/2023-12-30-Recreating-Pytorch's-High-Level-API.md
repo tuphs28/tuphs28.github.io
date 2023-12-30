@@ -17,4 +17,4 @@ This proved problematic as, for the life of me, I could not figure out how to im
 
 ### Going Forward
 
-Overall, this has been an incredibly useful exercise so far. In this series of "BadTorch" blog posts I will walk through what the process of finishing this exercise, including some pointers to things that I found particular useful or intersting in case any one else wants to have a go at doing this. All code can be found [here](https://github.com/tuphs28/tuphs28.github.io/tree/master/_posts)
+Overall, this has been an incredibly useful exercise so far. In this series of "BadTorch" blog posts I will walk through what the process of finishing this exercise, including some pointers to things that I found particular useful or intersting in case any one else wants to have a go at doing this. All code can be found in the repo [here](https://github.com/tuphs28/BadTorch).
