@@ -5,7 +5,7 @@ tags:
     - Deep Learning
 ---
 
-Having outlined the purpose of [BadTorch](https://github.com/tuphs28/BadTorch) in the prior post, I will not outline the first parts of BadTorch I completed. Namely, I will explain how I handled data processing and optimisers. I will also outline the construction and character-level language modelling performance of some simple RNNs built with BadTorch,
+Having outlined the purpose of [BadTorch](https://github.com/tuphs28/BadTorch) in the prior post, I will now outline the first parts of BadTorch I completed. Namely, I will explain how I handled data processing and optimisers. I will also outline the construction and character-level language modelling performance of some simple RNNs built with BadTorch. In the final bit of the blog post I explore training these models on philosphical texts.
 
 ### Handling Data
 
@@ -528,7 +528,7 @@ With LSTMs and GRUs implemented, we can finally turn to training language models
 
 The results for using an LSTM are remarkably similar (albeit with the LSTM taking slightly longer to train due to its larger parameter count). We can achieve even better results if we use larger models, albeit at the cost of increased training time as all of the above models take <10 minutes to train with Adam. As such, I trained a 3-layer version of the above GRU for about an hour and a half. This model achieved a validation loss of ~1.32. More impressively, however, this model manages to produce text that looks at first glance like Shakespeare. The following is a sample when the model is prompted with "ROMEO":
 
->ROMEOR. I think I shall give your Grace do. I have nothing,  
+>ROMEO. I think I shall give your Grace do. I have nothing,  
   He refuses who writs no prince.  
     BARDOLK. Cousin Sharsh shall do us.  
       BUCKINGHAM. As ever lordship not in this instant,  
@@ -541,3 +541,47 @@ The results for using an LSTM are remarkably similar (albeit with the LSTM takin
                               ARCHBISHOP. Out of fait
 
 Now, of course this isn't a coherent, grammatic piece of Shakespearean literature. However, I would argue that it is nonetheless an incredibly Shakespeare-like piece of text for a model that was trained with minimal data for a short period of time. 
+
+### Training Language Models on Philosophy
+
+Having spent 4 years of my life studying a fair bit of philosophy, philosophy is still pretty close to my heart. As such, I trained the above 3-layer GRU model on some famous philosophical texts to investigate how coherent the output they produced was. In all below cases, models were trained (arbitarily) for about half an hour.
+
+The first philosophical text I trained the model on was Neitzche's "Thus Spoke Zarathustra". When prompted with "Zarathustra" after training, the model produced the following 1000-character output:
+
+>Zarathustra the chance to works and slayers: but one  
+shall be brave God: men, to live it under us like actors to its hammer!  
+Oh! y wishest thou it thereof concealeth thy lot; but he hath planted? Well  
+then, up, ye old languages of a unequul?  
+“Well!” said Zarathustra, “thou hast become giddy, not the time of  
+virtue! Where God of the flock of spirit  
+of shame!    
+And why is it harm! To him and traders were more rigorous  
+ones, the crafty of the question of their justice! Verily, doth that change  
+are my warning for cowsions!  
+Sleep tames and limbs and brilldingly: now do I shall laugh back to
+undiscovered by men’s own head!  
+The Again am I with it, and into the overflow. And often is
+the man and maketh mine own hands.  
+I do not like heavy; and only where looked around him, a mocker  
+did I service my taste—all the people. Then was these kine. For I considest if once  
+asked him in all time paths and solitary ones.  
+But as virtuous in your love sadly through its prison. But to these
+
+While clearly not a coherent piece of text, this seems to be somewhat Nietzche-esque (and makes as much sense to me as Nietzche). Next, I trained the model on Kant's "Critique of Pure Reason" to get the following decidely Kant-like sample:
+
+>Empirical conceptions of the understanding to objects are continually determined in space; the suncties of the subject as perfection in our distinction is determined in the world, in so soy we do so necessary to give transcent to each other in these, from which at the same time, they are raised or unavoidably wisking for the function of satisfies.  
+Both conjunction (which expresses animals are things in intuitions we an object of things à priori of intuition is necessary and conditions of all phenomena (the Wollow) realissimues, but are called different kinds of empirical principles. This unity seems to be lessened, and, that we ceeter remark only the either in thought, or accordance with the cosmological syllow (immortain); still undetating to them merely empirically unconditioned, but that, by by the foregoing predicates whose parts have been eoften to explain objects and à priori method of sense of the understanding itself.
+
+This sample seems to capture Kant's style of writing pretty well, even down to the ever-present use of adding extra clauses mid-sentence. Indeed, the model even seems to have learnt (minus one exception in the above) that parantheses need to be both opened and closed! Finally, I trained on Plato's Republic to get the following sample. Notice that the model has learned the dialetical structure of Plato's writings.
+
+> make the principle of legislative in the pleasure of the dye; it has been called into a danger, or an other arts in literal contingent line, as well as an
+eyesigh and death for nothing henceforbate deitics, but with other arts, and they will possess character. He applies to become health; for the citizens he remarks in the human language of reticence, equal in death.
+
+>How do you mean?
+
+>What I mean may be dealings of both, can therefore be reality and desire; for other art will be sure that you are saying what effect these good and emigory there are diseases when party specks, and every one who has her have directed from the fortunes have wise being a whole.
+
+>You are right.
+
+>Still, on the so-called power of understanding, he is honours and worshibly and good reason? No insense of mankind they have the business of which they are, as passion demodical, I said, this brief all men whom we were saying, has the blessings of their hands; nor you seem to be repeated, I think
+
