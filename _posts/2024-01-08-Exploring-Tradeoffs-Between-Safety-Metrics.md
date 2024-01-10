@@ -151,6 +151,8 @@ However, this affirmative response must be qualified. This is because ensemble m
 
 ### 5 - Reflections on these Experiments
 
+For the interested, you can find the full report [here](/assets/documents/mnist_robustness/mnist_report.pdf).
+
 Looking back, there's a lot in this work I am not happy with. A few key things that stand out are:
  - I trained models on the same adversarial attacks as I tested their adversarial robustness using - this goes in the face of work that has found that robustness to one type of attack does not guarantee robustness to others
  - I only considered very weak adversarial attacks - the literature has advanced considerably since PGD and FGSM came out, and much more powerful variants now exist

@@ -191,4 +191,4 @@ In summary, Monte Carlo methods are extremely powerful methods for calculating e
 So, for the interested, why is understanding all of this so relevant to ML?
 - In much of ML we cannot fully specify distributions of interest and so cannot analytically calculate expectations with respect to them. Monte Carlo methods can be used to overcome this problem if we can still sample from the distributions.
 - Monte Carlo methods are combined with Markov chain methods in the suite of tools that are called "Markov Chain Monte Carlo" methods (MCMC). Markov chains allow us to sample from such distributions (even when we do not know their full explicit form), and we can then use Monte Carlo methods to marginalise out through the operation of taking expectations.
-- Such MCMC methods are _very_ important in modern in machine learning. Diffusion models, for instance, are underpinned by theory relating to MCMC through the use of "Lengevin dynamics". 
+- Such MCMC methods are _very_ important in modern in machine learning. Diffusion models, for instance, are underpinned by theory relating to MCMC through the use of "Langevin dynamics". 
