@@ -1,5 +1,5 @@
 ---
-title: "BadTorch Part 1: Motivating Recreating PyTorch's High-Level API "
+title: "BadTorch Part 1: Motivating Recreating PyTorch's High-Level API for Language Modelling"
 tags:
     - BadTorch
     - Deep Learning
@@ -16,4 +16,4 @@ This proved problematic as, for the life of me, I could not figure out how to im
 
 ### Going Forward
 
-Overall, this has been an incredibly useful exercise so far. In this series of "BadTorch" blog posts I will walk through what the process of finishing this exercise, including some pointers to things that I found particular useful or intersting in case any one else wants to have a go at doing this. All code can be found in the repo [here](https://github.com/tuphs28/BadTorch). The specific task I will focus on in this series of blog posts will be language modelling (I still find the ability of models to produce human-esque language just completely mind-blowing) but BadTorch should work fine for other tasks too.
+Overall, this has been an incredibly useful exercise so far. In this series of "BadTorch" blog posts I will walk through what the process of finishing this exercise with the aim of constructing recurrent language models in the style of Pytorch. All code can be found in the repo [here](https://github.com/tuphs28/BadTorch). 
