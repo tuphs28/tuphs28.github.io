@@ -1,7 +1,7 @@
 ---
 title: "An Intro to Monte Carlo Methods"
 tags:
-    - Monte Carlo
+    - MCMC
 ---
 
 A common computation we face in machine learning is computing expectations. When working in \\(\mathbb{R}^d\\), for instance, we often face integrals of the form:
