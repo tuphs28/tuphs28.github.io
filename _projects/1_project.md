@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 1
+title: Learned Planning in Model-Free RL
 description: with background image
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: ai
 related_publications: true
 ---
 
