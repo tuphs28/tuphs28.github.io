@@ -2,7 +2,7 @@
 layout: post
 title: "Exploring Tradeoffs Between Safety Metrics with MNIST"
 date: 2024-01-08
-tags: robustness, ai-safety
+tags: robustness, ai-safety, deep-learning
 ---
 
 Despite huge advances in their capabilities when measured along standard performance dimensions (e.g. recognising images, producing language, forecasting weather patterns etc...), many deep learning models are still surprisingly "brittle". While there are many dimensions along which this "brittle-ness" shows itself, three interesting ones are:
