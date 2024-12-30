@@ -193,4 +193,4 @@ However, this raises an obvious question: how can a nominally model-free agent h
 
 ### Acknowledgements
 
-I am deeply grateful to Stephen Chung, Usman Anwar, Adria Garriga-Alonso and Prof David Krueger for their mentorship in this project.
+This project would not have been possible without the amazing guidance and mentorship I have recieved from Stephen Chung, Usman Anwar, Adria Garriga-Alonso and Prof David Krueger to who I am deeply grateful.
