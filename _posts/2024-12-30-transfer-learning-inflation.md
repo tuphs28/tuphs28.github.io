@@ -1,10 +1,8 @@
 ---
-layout: page
-title: Improve Inflation Forecasts With BERT
-description: Using a fine-tuned language model to extract measures of economic activity in order to improve inflation forecasts.
-img: assets/img/projects/inflation/pctpos.png
-importance: 1
-category: data-science
+layout: post
+title: Improving Inflation Forecasts With BERT
+tags: deep-learning, economics
+date: 2024-12-30
 related_publications: true
 ---
 

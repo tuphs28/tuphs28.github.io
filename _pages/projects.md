@@ -1,11 +1,10 @@
 ---
 layout: page
-title: projects
+title: Research
 permalink: /projects/
-description: A collection of cool AI-ish projects I have worked on that seemed to big for blog posts.
 nav: true
 nav_order: 3
-display_categories: [data-science]
+display_categories: [Paper-Summaries]
 horizontal: false
 ---
 

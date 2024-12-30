@@ -33,34 +33,6 @@
   publisher={American Association of Physics Teachers}
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
-  inspirehep_id = {3255}
-}
-
 @article{einstein1905molekularkinetischen,
   title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
   author={Einstein, A.},
@@ -451,7 +423,7 @@ url = {https://EconPapers.repec.org/RePEc:bes:jnlbes:v:13:y:1995:i:3:p:253-63}
   volume={288},
   pages={103367},
   year={2020},
-  publisher={Elsevier}
+  publisher={Elsevier},
 }
 
 @inproceedings{zahavy2016graying,
@@ -564,4 +536,62 @@ url={https://openreview.net/forum?id=rkl3m1BFDB}
   pages={267--280},
   year={2019},
   publisher={Springer}
+}
+
+@article{silver2018alphazero,
+    author = {David Silver  and Thomas Hubert  and Julian Schrittwieser  and Ioannis Antonoglou  and Matthew Lai  and Arthur Guez  and Marc Lanctot  and Laurent Sifre  and Dharshan Kumaran  and Thore Graepel  and Timothy Lillicrap  and Karen Simonyan  and Demis Hassabis },
+    title = {A general reinforcement learning algorithm that masters chess, shogi, and Go through self-play},
+    journal = {Science},
+    volume = {362},
+    number = {6419},
+    pages = {1140-1144},
+    year = {2018},
+    doi = {10.1126/science.aar6404},
+    URL = {https://www.science.org/doi/abs/10.1126/science.aar6404},
+    eprint = {https://www.science.org/doi/pdf/10.1126/science.aar6404}
+}
+
+@article{valmeekam2023planning,
+  title={On the planning abilities of large language models-a critical investigation},
+  author={Valmeekam, Karthik and Marquez, Matthew and Sreedharan, Sarath and Kambhampati, Subbarao},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  pages={75993--76005},
+  year={2023}
+}
+
+@inproceedings{guez2019investigation,
+  title={An investigation of model-free planning},
+  author={Guez, Arthur and Mirza, Mehdi and Gregor, Karol and Kabra, Rishabh and Racani{\`e}re, S{\'e}bastien and Weber, Th{\'e}ophane and Raposo, David and Santoro, Adam and Orseau, Laurent and Eccles, Tom and others},
+  booktitle={International Conference on Machine Learning},
+  pages={2464--2473},
+  year={2019},
+  organization={PMLR}
+}
+
+@misc{
+  garriga-alonso2024planning,
+  title={Pacing Outside the Box: RNNs Learn to Plan in Sokoban},
+  author={Adri{\`a} Garriga-Alonso and Mohammad Taufeeque and Adam Gleave and ChengCheng},
+  year={2024},
+  url={https://www.alignmentforum.org/posts/CLijBSGKi6bbSHw46/pacing-outside-the-box-rnns-learn-to-plan-in-sokoban},
+  rl={https://openreview.net/forum?id=DzGe40glxs}
+}
+
+@misc{
+  2024interpreting,
+  title={Interpreting Emergent Planning in Model-Free Reinforcement Learning},
+  author={Bush, Thomas and Chung, Stephen and Anwar, Usman and Garriga-Alonso, Adri{\`a} and Krueger, David},
+  booktitle={Under Review at The Thirteenth International Conference on Learning Representations},
+  year={2024},
+  url={https://openreview.net/forum?id=DzGe40glxs},
+  selected={true},
+  note={under review},
+  preview={emgplanning_titlegif.gif},
+  code={https://github.com/tuphs28/emergent-planning/tree/main},
+  website={https://tuphs28.github.io/projects/interpplanning/},
+  abstract={
+  We present the first mechanistic evidence that model-free reinforcement learning agents can learn to plan. This is achieved by applying a methodology based on concept-based interpretability to a model-free agent in Sokoban -- a commonly used benchmark for studying planning. Specifically, we demonstrate that DRC, a generic model-free agent introduced by Guez et al. (2019), uses learned concept representations to internally formulate plans that both predict the long-term effects of actions on the environment and influence action selection. Our methodology involves: (1) probing for planning-relevant concepts, (2) investigating plan formation within the agent's representations, and (3) verifying that discovered plans (in agent's representations) have causal effect on agent's behavior through interventions. We also show that the emergence of these plans coincides with the emergence of a planning-like property: the ability to benefit from additional test-time compute. Finally, we perform a qualitative analysis of the planning algorithm learned by the agent and discover a strong resemblance to parallelized bidirectional search. Our findings advance understanding of the internal mechanisms underlying planning behavior in agents, enabling improved diagnosis, interpretation, and control of agent planning processes.
+  },
+  keywords = {my-paper},
 }
