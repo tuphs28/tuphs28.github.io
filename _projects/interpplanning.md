@@ -16,7 +16,7 @@ toc:
   - name: 4 - Intervening on The Agent's Plans
   - name: 5 - Discussion
   - name: 6 - Conclusion
-
+  - name: Appendix
 ---
 In this post, I summarise my forthcoming paper in which we present evidence that a model-free reinforcement learning agent can learn to internally perform planning.  Our post is organised as follows. In Section 0, I provide a high-level TL;DR. After this, in Section 1, I provide a brief introduction to our work. Sections 2, 3 and 4 then detail the three primary steps of our analysis. Finally, Sections 5 and 6 conclude with some discussion and high-level takeaways.
 
@@ -126,12 +126,12 @@ So, the Deep Repeated ConvLSTM (DRC) agent internally represents the aformention
 
 ### 3.1 - Internal Plans
 
-We find that the agent uses its internal representations of Agent Approach Direction and Box Push Direction for each individual Sokoban square to formulate coherent planned paths to take around the Sokoban board, and to predict the consequences of taking these paths on the locations of boxes. That is, when we apply 1x1 probes to the agent's cell state to  predict $$C_A$$ and $$C_B$$ for every square of observed Sokoban boards, we find what appear to be (1) paths the agent expects to navigate along and (2) routes the agent expects to push boxes along. Examples (a)-(c) in the below figure provide examples of the agent forming "internal plans" in this way in three example levels.
+We find that the agent uses its internal representations of Agent Approach Direction and Box Push Direction for each individual Sokoban square to formulate coherent planned paths to take around the Sokoban board, and to predict the consequences of taking these paths on the locations of boxes. That is, when we apply 1x1 probes to the agent's cell state to  predict $$C_A$$ and $$C_B$$ for every square of observed Sokoban boards, we find what appear to be (1) paths the agent expects to navigate along and (2) routes the agent expects to push boxes along. The examples in the below figure illustrate the agent's internal plans (at each of its 3 layers) for six example levels.
 
 <p align="center">
   <img src="/assets/img/projects/planning/planning_ex.png" style="width: 100%; height: auto;">
   <p style="font-size: 0.75em; font-style: italic; text-align: center;">
-    Figure 6: Examples of internal plans decoded from the agent's cell state by a probe. Teal and purple arrows respectively indicate that a probe applied to the agent's cell state decodes that the agent expects to next step on to, or push a box off, a square from the associated direction. 
+    Figure 6: Examples of internal plans decoded from the agent's cell state by a probe. Teal and purple arrows respectively indicate that a probe applied to the agent's cell state decodes that the agent expects to next step on to, or push a box off, a square from the associated direction.  
   </p>
 </p>
 
@@ -243,8 +243,151 @@ We think the answer here is that the inductive bias of ConvLSTMs has encouraged 
 
 Our work provides the first non-behavioural evidence that agents can learn to perform decision-time planning without either an explicit world model or an explicit planning algorithm. Specifically, we provide evidence that appears to indicate that a Sokoban-playing DRC agent internally performs a process with similarities to bi-directional search-based planning. This represents a further blurring of the classic distinction between model-based and model-free RL, and confirms that -- at least with a specific architecture in a specific environment -- model-free agents can learn to perform planning.
 
-However, our work leaves many questions unanswered. For instance, what are the conditions under which an agent can learn to plan without an explicit world model? For instance, as exemplified by its multiple internal recurrent ticks, the agent we study has a slightly atypical architecture. Likewise, the 3D nature of the agent's ConvLSTM cell states means that the agent is especially well-suited to learning to plan in the context of Sokoban's localised, grid-based transition dynamics. While we suspect our findings hold more broadly<d-footnote>In an appendix to our paper we find evidence (1) that DRC agents internally plan in Sokoban even when only performing a single tick of computation per step; (2) that a ResNet agent can learn to plan in Sokoban; (3) that a DRC agent can learn to plan in Mini Pacman, a game with less-localised transition dynamics. </d-footnote>, we leave it to future work to confirm this.
+However, our work leaves many questions unanswered. For instance, what are the conditions under which an agent can learn to plan without an explicit world model? For instance, as exemplified by its multiple internal recurrent ticks, the agent we study has a slightly atypical architecture. Likewise, the 3D nature of the agent's ConvLSTM cell states means that the agent is especially well-suited to learning to plan in the context of Sokoban's localised, grid-based transition dynamics. While we suspect our findings hold more broadly (see the Appendix to our paper and/or the Appendix to this blog post for more details), we leave it to future work to confirm this.
 
 ### Acknowledgements
 
 This project would not have been possible without the amazing guidance and mentorship I have recieved from Stephen Chung, Usman Anwar, Adria Garriga-Alonso and David Krueger to who I am deeply grateful. I would also like to thank Alex Cloud for helpful feedback on this post.
+
+<hr>
+
+## Appendix
+
+### A - Planning in a ResNet Agent
+
+An obvious question to ask is whether the agent's ability to plan is specific to the architecture of its ConvLSTM cell state. In an appendix to our paper, we provide evidence indicating that this is not the case. Specifically, we show that a 24-layer ResNet agent can learn to plan in Sokoban.
+
+As with the DRC agent, we train probes to predict the concepts ‘Agent Approach Direction’ and ‘Box Push Direction’ from the agent's activations. The Macro F1 scores achieved by these probes are shown below.
+
+<div style="text-align: center;">
+  <img src="/assets/img/projects/planning/resnet_f1s.png" style="width: 100%; height: auto;" >
+   <p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 0 auto;">
+  Figure 16: Macro F1s achieved by 1x1 and 3x3 probes when predicting (a) Agent Approach Direction and (b) Box Push Direction using the ResNet agent's activations after each of its 24 layers, or, for the baseline probes, using the observations. 
+  </p>
+</div>
+
+Note that the 1x1 probes become iteratively more accurate over layers until a point at which the reverse trend begins. Specifically, the 1x1 probes for $C_B$ improve until about layer 10, whilst the probes for $C_A$ improve for longer until about layer 16. We hypothesize that this means that the ResNet agent is internally planning using spatially-localized concepts relating to box and agent movements, and that it is doing so by first determining how to move boxes, and then, afterward, reasoning about what that means for its own movements.
+
+Qualitative evidence of the agent iteratively refining its plan to push boxes over its initial layers is shown in the gifs below in Figure 18
+
+<div class="row mt-4 mb-5">
+  <div class="col-sm-4">
+    <img src="/assets/img/projects/planning/resnet_box_1.gif" style="width: 100%;">
+  </div>
+  <div class="col-sm-4">
+    <img src="/assets/img/projects/planning/resnet_box_2.gif" style="width: 100%;">
+  </div>
+  <div class="col-sm-4">
+    <img src="/assets/img/projects/planning/resnet_box_3.gif" style="width: 100%;">
+  </div>
+   <p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 0 auto;">
+  Figure 18: The squares the ResNet agent plans to push boxes off of, over its initial 10 layers, as decoded by a 1x1 probe in three episodes.
+  </p>
+</div>
+
+### B - Planning in Mini Pacman
+
+Another relevant question is whether the agent's ability to plan is specific to the environment in which it is trained. In this section, we now provide preliminary results when investigating whether a DRC agent can learn to internally plan in a different environment: Mini PacMan. 
+
+In Mini PacMan, an agent must navigate around walls in a grid-world and eat food. Initially, each non-wall square has food on, and levels end when the agent eats all food. However, the agent must also avoid ghosts which chase the agent. In each level, there are also ‘power pills’. When the agent steps onto a square with a power pill, ghosts flee, and the agent eats any ghosts it steps onto. An example of Mini PacMan is shown below.
+
+<div style="text-align: center;">
+  <img src="/assets/img/projects/planning/pilleater_example.gif" style="width: 50%; height: auto;" >
+   <p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 0 auto;">
+  Figure 19: An example of a Mini PacMan episode.
+  </p>
+</div>
+
+We initially tried probing for the concept ‘Agent Approach Direction’ (CA) as in Sokoban but found little
+evidence of the agent representing it. After experimentation, however, we found probes to be able
+to decode the following concept from the agent’s cell state:
+- **Agent Approach Direction 16**: This concept tracks which squares the agent will step off of, and which direction it will do so in, over the next 16 time steps. 
+- **Agent Approach 16**: This concept tracks which squares the agent will step off of over the next 16 time steps.
+
+We then probe the agent's cell state for these concepts at each layer of the agent's ConvLSTM. The Macro F1 scores achieved by these probes are shown below.
+
+<div style="text-align: center;">
+  <img src="/assets/img/projects/planning/pacmanres.png" style="width: 100%; height: auto;" >
+   <p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 0 auto;">
+  Figure 20: Macro F1s achieved by 1x1 and 3x3 probes when predicting (a) Agent Approach Direction 16 and (b) Agent Approach 16 using the agent's cell state at each layer, or, for the baseline probes, using the observations. 
+  </p>
+</div>
+
+We are unsure whether to interpret these results as indicating that (1) the agent possesses spatially-localized representations of the concept ‘Agent Approach 16’, (2) the agent posseses a representation of the concept ‘Agent Approach Direction 16’ distributed across adjacent positions of its cell state, or (3) the agent possesses a spatially-localized representation of a *correlate* of the concept ‘Agent Approach Direction 16’ that a 3x3 probe is able to pick up but a 1x1 probe is not. 
+
+I lean towards the latter interpretation. This is because, when we visualise the predictions of a 3x3 probe trained to predict Agent Approach Direction 16, we see that the probe is able to pick up what appears to be another internal planning process.<d-footnote>Specifically, the agent appears to have learned to construct a plan by iteratively searching forward to different depths. I hypothesise that this means the `true' concept the agent plans in terms of is not Agent Approach Direction 16, but a concept that is correlated with it. I also hypothesise that the 3x3 probe is better able to pick up this true concept as it is more robust to the false positives and false negatives that training a probe to predict Agent Approach Direction 16 faces in such a scenario.</d-footnote> This is illustrated in the gifs below.<d-footnote>Note also that these decoded plans cannot really be explained by the agent internally representing merely which squares it plans to step onto and then the 3x3 probe guess the direction. This is because the probe correctly predicts the direction the agent will step on to a square even in cases where there are multiple feasible options.</d-footnote> Note that, in these gifs, I have adjusted the transparency of the arrows to match the confidence of the probe's predictions.
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; text-align: center;">
+  <img src="/assets/img/projects/planning/pilleater_blogplanex_1.gif" style="width: 45%; height: auto;">
+  <img src="/assets/img/projects/planning/pilleater_blogplanex_2.gif" style="width: 45%; height: auto;">
+  <img src="/assets/img/projects/planning/pilleater_blogplanex_3.gif" style="width: 45%; height: auto;">
+  <img src="/assets/img/projects/planning/pilleater_blogplanex_4.gif" style="width: 45%; height: auto;">
+</div>
+
+<p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 1em auto 0 auto;">
+  Figure 21: Four examples of the predictions of a 3x3 probe trained to predict Agent Approach Direction 16. The transparency of the arrows corresponds to the confidence of the probe’s predictions.
+</p>
+
+
+An interesting observation here is that the agent appears to have learned an internal planning process that is completely different from the one it learns in Sokoban. Some notable features of this learned planning process are as follows:
+- The agent seems to be primarily planning by searching **forward** from its current position.
+- The agent's search appears to be **dynamic-horizon** - that is, it appears to be searching forward to different depths over the course of the episode.
+- The agent seems to frequently consider multiple plans before **pruning** most of them and selecting a single plan
+- The agent's **confidence** in its plan seems to meaningfuly vary. Specifically, the agent seems to be more confident about its short-term plans than its long-term plans, and seems to become more confident in its remaining plans after pruning most of its other plans.
+
+### C - Planning To Solve Mazes
+
+Finally, I will outline some preliminary results regarding a DRC agent's ability to solve mazes. These results were not included in the appendix due to its length, but I thought I would include them here as they are interesting.
+
+Specifically, I trained a DRC agent to solve mazes that varied in size between 5x5 and 25x25. An example of such a maze is shown below.
+
+<div style="text-align: center;">
+  <img src="/assets/img/projects/planning/maze_ex.gif" style="width: 90%; height: auto;" >
+   <p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 0 auto;">
+  Figure 22: An example of a maze episode.
+  </p>
+</div>
+
+I then trained probes to predict which squares the agent would step onto when solving such mazes. Unsurprisingly given the above results, the probes were able to predict the concept with a high degree of accuracy, and are able to pick up on the agent's internal planning process. This is illustrated in the gif below.
+
+<div style="text-align: center;">
+  <img src="/assets/img/projects/planning/mazes_plan_id.gif" style="width: 90%; height: auto;" >
+   <p style="font-size: 0.75em; font-style: italic; text-align: center; width: 90%; margin: 0 auto;">
+  Figure 23: An example of the predictions of a probe trained to predict what squares the agent plans to step onto. The squares the probe predicts the agent will step onto are marked with blue dots.
+  </p>
+</div>
+
+Now, it is perhaps interesting that the agent has learned an internal maze-solving algorithm that can be linearly decoded. However, what is much more interesting is that this algorithm can generalize far, far beyond the training distribution. 
+
+Specifically, since the ConvLSTM backbone of the DRC agent is convolutional, we can apply every part of the agent up until its final MLP layer to an input of any size <d-footnote>The subsequent experimments were inspired by this observation being made in related work<d-cite key="garriga-alonso2024planning"></d-cite></d-footnote>. That is, we can feed observations of arbitrary sizes to the encoder and ConvLSTM backbone of the agent, and then apply our linear probes to the resulting cell states (which, as everything is convolutional, will be of the same size as the input) to decode the agent's internal plan. Surprisingly, the agent maze-solving algorithm can generalize to mazes of sizes far beyond the training distribution. For instance, in the below gifs, the agent (when given sufficient test-time compute) internally forms a plans to solve mazes way beyond the size of the mazes in the training distribution.
+
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; text-align: center;">
+  <div style="flex: 0 1 45%;">
+    <img src="/assets/img/projects/planning/mazes_ex_ood_49_0.gif" style="width: 100%; height: auto;">
+    <p style="font-size: 0.75em; font-style: italic; margin-top: 0.5em;">
+      Figure 24: The predictions of a probe trained to predict what squares the agent plans to step onto when the agent is given a 49x49 maze.
+    </p>
+  </div>
+  <div style="flex: 0 1 45%;">
+    <img src="/assets/img/projects/planning/mazes_ex_ood_99_0.gif" style="width: 100%; height: auto;">
+    <p style="font-size: 0.75em; font-style: italic; margin-top: 0.5em;">
+      Figure 25: The predictions of a probe trained to predict what squares the agent plans to step onto when the agent is given a 99x99 maze.
+    </p>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; text-align: center;">
+  <div style="flex: 0 1 45%;">
+    <img src="/assets/img/projects/planning/mazes_ex_ood_149_0.gif" style="width: 100%; height: auto;">
+    <p style="font-size: 0.75em; font-style: italic; margin-top: 0.5em;">
+      Figure 26: The predictions of a probe trained to predict what squares the agent plans to step onto when the agent is given a 149x149 maze.
+    </p>
+  </div>
+  <div style="flex: 0 1 45%;">
+    <img src="/assets/img/projects/planning/mazes_ex_ood_199_0.gif" style="width: 100%; height: auto;">
+    <p style="font-size: 0.75em; font-style: italic; margin-top: 0.5em;">
+      Figure 27: The predictions of a probe trained to predict what squares the agent plans to step onto when the agent is given a 199x199 maze.
+    </p>
+  </div>
+</div>
