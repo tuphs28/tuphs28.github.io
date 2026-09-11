@@ -10,19 +10,16 @@ $grey-color:       #a89a86; // muted warm grey
 @import "minima";
 
 // Faint full-page background banner (Constable's "The Hay Wain")
+// A translucent colour wash is baked in via linear-gradient rather than
+// `opacity`, so the image fades into the pastel palette without needing a
+// pseudo-element (which stacking-context quirks can hide behind the body's
+// own background).
 body {
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("/assets/images/haywain.jpg");
+  background-image:
+    linear-gradient(rgba($background-color, 0.86), rgba($background-color, 0.86)),
+    url("/assets/images/haywain.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-  opacity: 0.14;
-  z-index: -1;
-  pointer-events: none;
+  background-attachment: fixed;
 }
