@@ -1,0 +1,29 @@
+title: Your Name
+email: 28tbush@gmail.com
+description: >-
+  DPhil student in Artificial Intelligence at the University of Oxford.
+  Notes on ML research and other things I find interesting.
+baseurl: ""
+url: "https://tuphs28.github.io"
+
+theme: minima
+github_username: tuphs28
+
+header_pages:
+  - about.md
+  - research.md
+  - publications.md
+  - cv.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
