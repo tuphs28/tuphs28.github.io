@@ -1,6 +1,28 @@
 ---
 ---
 
+// Pastel palette (overrides minima defaults, must be set before the import)
+$text-color:       #4a4038; // warm taupe-brown
+$background-color: #f7f1e6; // soft cream
+$brand-color:      #8fae8f; // pastel sage green
+$grey-color:       #a89a86; // muted warm grey
+
 @import "minima";
 
-// Add custom style overrides below.
+// Faint full-page background banner (Constable's "The Hay Wain")
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/assets/images/haywain.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.14;
+  z-index: -1;
+  pointer-events: none;
+}
