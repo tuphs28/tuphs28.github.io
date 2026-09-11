@@ -9,6 +9,6 @@ I am a DPhil (PhD) student in the Bayesian Governance Lab at the University of O
 
 I like thinking about how we can make AI safe and beneficial. 
 
-My research focuses on understanding the behaviour of autonomous agents, and maintaining human agency + control in human-AI collaboration.
+My research focuses on understanding the behaviour of autonomous AI agents, and maintaining human agency + control when collaborating with them. I previously spent time trying to understand how agents think.
 
 Feel free to reach out at to me at: tdb47@robots.ox.ac.uk.
