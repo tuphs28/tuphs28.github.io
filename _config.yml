@@ -9,9 +9,6 @@ url: "https://tuphs28.github.io"
 theme: minima
 github_username: tuphs28
 
-header_pages:
-  - about.md
-
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
