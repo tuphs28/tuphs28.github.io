@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-### *About*
+## About
 
 <div class="profile-box">
   <img src="/assets/images/profile.jpg" alt="Tom Bush" class="profile-pic">
@@ -22,10 +22,8 @@ My research focuses on understanding the behaviour of autonomous AI agents, and 
 
 I previously spent time researching mechanistic interpretability and trying to understand how agents think.
 
-I have previously been a 
-
 Please reach out! My email is: tdb47@robots.ox.ac.uk.
 
-### *Writing*
+## Writing
 
 - [Interpreting Emergent Planning in Model-Free Reinforcement Learning](/projects/interpplanning/) — a summary of my ICLR 2025 Oral paper.

@@ -7,6 +7,9 @@ $background-color: #f7f1e6; // soft cream
 $brand-color:      #8fae8f; // pastel sage green
 $grey-color:       #a89a86; // muted warm grey
 $base-font-family: 'Lora', Georgia, 'Times New Roman', serif;
+$base-line-height: 1.7;   // more breathing room for a serif reading face
+$content-width:    700px; // a narrower, more book-like reading column
+$spacing-unit:     34px;
 
 @import "minima";
 
@@ -67,5 +70,74 @@ body {
     height: 20px;
     fill: currentColor;
     display: block;
+  }
+}
+
+// Tighten the header/footer chrome so it reads less like stock minima
+.site-header {
+  border-top: none;
+  border-bottom: 1px solid rgba($brand-color, 0.4);
+}
+
+.site-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  &,
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}
+
+.site-nav .page-link {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.site-footer {
+  border-top: 1px solid rgba($brand-color, 0.4);
+  color: $grey-color;
+
+  a {
+    color: $grey-color-dark;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}
+
+// Editorial section-heading treatment: small, tracked-out, uppercase
+// labels with a thin accent rule, rather than minima's plain bold text.
+.post-content,
+.page-content {
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $text-color;
+    border-bottom: 2px solid rgba($brand-color, 0.45);
+    padding-bottom: 0.4em;
+    margin-top: 2.2em;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $grey-color-dark;
+    border-bottom: 1px solid rgba($brand-color, 0.25);
+    padding-bottom: 0.3em;
+    margin-top: 1.8em;
   }
 }
