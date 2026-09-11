@@ -3,6 +3,8 @@ layout: default
 title: Home
 ---
 
+## About
+
 Hi. I'm Tom.
 
 I am a DPhil (PhD) student in the Bayesian Governance Lab at the University of Oxford. I'm fortunate to be supervised by Prof. Maike Osborne.
