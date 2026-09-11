@@ -4,17 +4,12 @@ title: About
 permalink: /about/
 ---
 
-I am a DPhil (PhD) student in the Department of *(department name)* at the University of Oxford, working on artificial intelligence, supervised by *(supervisor name)*.
+Hi. I'm Tom.
 
-Before Oxford, I *(previous degree / job / institution)*.
+I am a DPhil (PhD) student in the Bayesian Governance Lab at the University of Oxford. I'm fortunate to be supervised by Prof. Maike Osborne.
 
-## Interests
+I like thinking about how we can make AI safe and beneficial. 
 
-- *(research interest 1)*
-- *(research interest 2)*
-- *(research interest 3)*
+My research focuses on understanding the behaviour of autonomous agents, and maintaining human agency + control in human-AI collaboration.
 
-## Contact
-
-- Email: [28tbush@gmail.com](mailto:28tbush@gmail.com)
-- GitHub: [@tuphs28](https://github.com/tuphs28)
+Feel free to reach out at to me at: tdb47@robots.ox.ac.uk.

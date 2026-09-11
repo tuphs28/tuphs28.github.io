@@ -1,4 +1,4 @@
-title: Your Name
+title: Tom Bush
 email: 28tbush@gmail.com
 description: >-
   DPhil student in Artificial Intelligence at the University of Oxford.
@@ -11,9 +11,6 @@ github_username: tuphs28
 
 header_pages:
   - about.md
-  - research.md
-  - publications.md
-  - cv.md
 
 plugins:
   - jekyll-feed
