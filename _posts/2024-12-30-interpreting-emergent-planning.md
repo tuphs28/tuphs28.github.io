@@ -2,6 +2,7 @@
 layout: post
 title: "Interpreting Emergent Planning in Model-Free Reinforcement Learning"
 date: 2024-12-30
+permalink: /projects/interpplanning/
 ---
 
 *This post summarises our paper "Interpreting Emergent Planning in Model-Free Reinforcement Learning" (Bush, Chung, Anwar, Garriga-Alonso and Krueger), accepted as an Oral at ICLR 2025. [Paper](https://openreview.net/forum?id=DzGe40glxs) · [Code](https://github.com/tuphs28/emergent-planning/tree/main)*

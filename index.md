@@ -17,4 +17,4 @@ Feel free to reach out at to me at: tdb47@robots.ox.ac.uk.
 
 ## Writing
 
-- [Interpreting Emergent Planning in Model-Free Reinforcement Learning](/2024/12/30/interpreting-emergent-planning.html) — a summary of my ICLR 2025 Oral paper.
+- [Interpreting Emergent Planning in Model-Free Reinforcement Learning](/projects/interpplanning/) — a summary of my ICLR 2025 Oral paper.
