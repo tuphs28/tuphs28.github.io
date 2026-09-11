@@ -51,11 +51,17 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
-.profile-links {
+.profile-links,
+.social-media-list {
   margin: 0.6em 0 0;
   display: flex;
   justify-content: center;
   gap: 14px;
+  list-style: none;
+
+  li {
+    padding-top: 0 !important;
+  }
 
   a {
     color: $grey-color-dark;
@@ -71,6 +77,11 @@ body {
     fill: currentColor;
     display: block;
   }
+}
+
+.social-media-list {
+  justify-content: flex-start;
+  margin: 0;
 }
 
 // Tighten the header/footer chrome so it reads less like stock minima
