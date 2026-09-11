@@ -25,20 +25,30 @@ body {
   background-attachment: fixed;
 }
 
-// Profile picture on the homepage
-.profile-pic {
+// Profile picture + social links on the homepage
+.profile-box {
   float: right;
   width: 180px;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 8px;
   margin: 0 0 1em 1.5em;
-  border: 3px solid rgba($background-color, 0.9);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  text-align: center;
 
   @include media-query($on-palm) {
     float: none;
-    display: block;
     margin: 0 auto 1.5em auto;
   }
+}
+
+.profile-pic {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid rgba($background-color, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.profile-links {
+  margin: 0.6em 0 0;
+  font-size: 0.85em;
 }
