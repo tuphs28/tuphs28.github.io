@@ -16,9 +16,9 @@ title: Home
 
 Hi. I'm Tom. I like thinking about how we can make AI safe and beneficial. 
 
-I am an AI DPhil (PhD) in the [Bayesian Governance Lab](https://www.robots.ox.ac.uk/~mosb/bgl/) at the University of Oxford, and am fortunate to be supervised by [Prof. Maike Osborne](https://www.robots.ox.ac.uk/~mosb/). I am part of the [AIMS CDT](https://aims.robots.ox.ac.uk/)
+I am a DPhil (PhD) student in the [Bayesian Governance Lab](https://www.robots.ox.ac.uk/~mosb/bgl/) at the University of Oxford, and am supervised by [Prof. Maike Osborne](https://www.robots.ox.ac.uk/~mosb/). I am part of the [AIMS CDT](https://aims.robots.ox.ac.uk/).
 
-My research focuses on understanding the behaviour of autonomous AI agents, and maintaining human agency + control when collaborating with them.
+My research focuses on understanding the behaviour of autonomous AI agents, and maintaining human agency + control when interacting with them.
 
 I previously spent time researching mechanistic interpretability and trying to understand how agents think.
 
